@@ -1,18 +1,17 @@
 import axios from 'axios';
-
-const BASE_URL = 'https://youtube.googleapis.com/youtube/v3/search';
-
-let config = {
-  method: 'get',
-  maxBodyLength: Infinity,
-  url: '',
-  headers: {},
+const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
+const options = {
+  url: BASE_URL,
+  params: {
+    maxResults: '48',
+  },
+  headers: {
+    'X-RapidAPI-Key': process.env.REACT_APP_REPID_API_KEY,
+    'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
+  },
 };
-axios
-  .request(config)
-  .then((response) => {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+export const fetchAPI = async (url) => {
+  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+  console.log(data);
+  return data;
+};
