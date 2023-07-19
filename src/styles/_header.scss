@@ -24,11 +24,9 @@
   .search {
     width: calc(100% - 300px);
 
-    .label {
-      .glass {
-        margin-top: 20px;
-        color: #fff;
-      }
+    .glass {
+      color: #fff;
+      margin-top: 20px;
     }
     input {
       width: 90%;
